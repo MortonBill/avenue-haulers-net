@@ -77,15 +77,27 @@
     font-size:clamp(1.05rem,2.3vw,1.27rem);color:#2c4a58;
   }
   .lede strong{color:var(--navy);}
-  .hero figure{margin:44px auto 0;max-width:920px;padding:0 24px;}
-  .hero figure .frame{
-    border-radius:18px;overflow:hidden;
+  .hero .duo{
+    display:grid;grid-template-columns:1fr 1fr;gap:22px;
+    max-width:1080px;margin:44px auto 0;padding:0 24px;
+  }
+  .hero .duo figure{text-align:center;}
+  .hero .duo .frame{
+    border-radius:18px;overflow:hidden;aspect-ratio:3/2;
     box-shadow:0 24px 60px rgba(7,28,39,.28), 0 4px 14px rgba(7,28,39,.18);
     border:1px solid rgba(11,40,54,.15);
   }
-  .hero figure img{display:block;width:100%;height:auto;}
-  .hero figcaption{
-    margin-top:12px;font-size:.8rem;color:#7a6f52;letter-spacing:.05em;
+  .hero .duo img{display:block;width:100%;height:100%;object-fit:cover;}
+  .hero .duo figcaption{margin-top:14px;}
+  .hero .duo figcaption .vname{
+    display:block;font-size:1.3rem;font-weight:800;letter-spacing:.03em;color:var(--navy);
+  }
+  .hero .duo figcaption .vmeta{
+    display:block;margin-top:2px;font-size:.92rem;color:#2c4a58;letter-spacing:.04em;
+  }
+  .hero .duo figcaption .vmeta b{color:var(--teal);}
+  .hero .render-note{
+    margin-top:16px;font-size:.8rem;color:#7a6f52;letter-spacing:.05em;text-align:center;
   }
 
   /* ---------- vehicles ---------- */
@@ -156,6 +168,7 @@
 
   @media (max-width:680px){
     .cards{grid-template-columns:1fr;}
+    .hero .duo{grid-template-columns:1fr;}
     .hero{padding-top:46px;}
     .topbar .wrap{flex-direction:column;gap:6px;}
     .soon{letter-spacing:.3em;padding-left:36px;}
@@ -179,12 +192,27 @@
       <p><span class="soon">Coming Soon</span></p>
       <p class="lede">The commercial line of Avenue Cruisers Co. &mdash; <strong>Porter</strong> (open cargo carrier, $12,995) and <strong>Trans-Porter</strong> (enclosed cargo quad, $15,995), last-mile vehicles built for the routes vans work badly.</p>
     </div>
-    <figure>
-      <div class="frame">
-        <img src="assets/trans-porter-render.jpg" alt="Product rendering of the Trans-Porter enclosed cargo quad in cream and deep green" width="1600" height="1067">
-      </div>
-      <figcaption>The Trans-Porter, shown as a product rendering.</figcaption>
-    </figure>
+    <div class="duo">
+      <figure>
+        <div class="frame">
+          <img src="assets/porter-render.jpg" alt="Product rendering of the Porter open cargo carrier in deep navy with canopy and rear cargo box" width="1600" height="1067">
+        </div>
+        <figcaption>
+          <span class="vname">Porter</span>
+          <span class="vmeta">Open Cargo Carrier &middot; <b>$12,995</b></span>
+        </figcaption>
+      </figure>
+      <figure>
+        <div class="frame">
+          <img src="assets/trans-porter-render.jpg" alt="Product rendering of the Trans-Porter enclosed cargo quad in cream and deep green" width="1600" height="1067">
+        </div>
+        <figcaption>
+          <span class="vname">Trans-Porter</span>
+          <span class="vmeta">Enclosed Cargo Quad &middot; <b>$15,995</b></span>
+        </figcaption>
+      </figure>
+    </div>
+    <p class="render-note">Images are product renderings.</p>
   </section>
 
   <section class="vehicles">
